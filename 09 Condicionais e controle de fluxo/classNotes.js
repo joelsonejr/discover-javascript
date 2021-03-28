@@ -28,10 +28,10 @@ if(highTemperature){
 
         switch(expression){
             case 'a': 
-                código para expressão a
+                código para caso a expressão seja igual ao valor de a
                 break //interrompe o switch
             case 'b':
-                código para expressão b
+                código para caso a expressão seja igual ao valor de b
                 break
             default: //caso não tenha caido em nenhum dos casos acima
                 break
