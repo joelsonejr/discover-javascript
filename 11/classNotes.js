@@ -238,5 +238,103 @@ celsiusFahrenheit(temperature) */
 
 
 
+/* 
+EXERCÍCIOS
 
+11.4 - Buscando e contando dados em Arrays
+
+Baseado no array de livros por categoria abaixo, faça os seguintes desafios
+    * Conta o número de categorias e o número de livros em cada uma delas.
+    * Contar o número de autores
+    * Mostrar livros do auto Augusto Cury
+    * Transformar a função acima em uma função que irá receber o nome do autor e devolver os livros desse autor
+*/
+
+const booksByCategory = [
+    {
+        category: 'Riqueza',
+        books: [
+            {
+                title: 'Os segredos da mente milinonária',
+                author: 'T. Harv Eker'
+            },
+            {
+                title: 'O homem mais rico da Babilônia',
+                author: 'George S. Clason'
+            },
+            {
+                title: 'Pai rico, pai pobre',
+                author: 'Robert T. Kiyosaki e Sharon L. Lechter'
+            }
+        ]
+    },
+    {
+        category: 'Inteligência Emocional',
+        books: [
+            {
+                title: 'Voce é insubistituível',
+                author: 'Augusto Cury'
+            },
+            {
+                title: 'Ansiedade - Como  enfrentar o mal do século',
+                author: 'Augusto Cury'
+            },
+            {
+                title: 'Os 7 hábito das pessoas altamente eficazes',
+                author: 'Stephen R. Covey'
+            }
+        ],
+    }
+]
+
+
+// contar os livros e as categorias
+
+let numberOfCategories = booksByCategory.length
+console.log(`Existem ${numberOfCategories} categorias de livros`)
+
+
+for (let category of booksByCategory) {
+    console.log(`O total de livros da categoria ${category.category} é ${category.books.length}`)
+   }
+
+function countAuthors(){
+    let authors = []
+
+    for (category of booksByCategory) {
+        for(book of category.books){
+            authors.push(book.author)
+        }
+    }
+
+    let totalAuthors = [... new Set(authors)]
+
+    totalAuthors = totalAuthors.length
+
+    console.log(`O total de autores é ${totalAuthors}`)
+
+}
+
+countAuthors()
+
+
+
+
+function listBooks(name){
+    let author = name
+    let books = []
+
+    for (category of booksByCategory) {
+        for(book of category.books){
+            if(book.author.includes(author)){
+                books.push(book.title)
+            }
+                
+        }
+    }
+
+    console.log(`Os livros de ${author} são: ${books.join(", ")} `)
+}
+
+listBooks('Augusto Cury')
 
